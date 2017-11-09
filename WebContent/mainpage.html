@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Welcome to Foodie!</title>
+
+
+</head>
+
+
+<body>
+<br> 
+
+Search for Restaurant:  <input type="text" placeholder="Enter search term..." name="searchText"/>
+
+
+<button onclick="myfunction()">Search</button>
+
+<p id="demo"></p>
+
+
+
+
+
+<script>
+	function myfunction(){
+		document.getElementById("demo").innerHTML = "This button will eventually do something!";
+	}
+	
+	
+	function UserAction() {
+		var num = 0;
+	    var xhttp = new XMLHttpRequest();
+	    var params="num="+num;
+	    xhttp.open("POST", "/incrementor?"+params, true);
+	    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	    //http://www.openjs.com/articles/ajax_xmlhttp_using_post.php
+	    //xhttp.setRequestHeader("Content-length", params.length);
+	    //xhttp.setRequestHeader("Connection", "close");
+	    xhttp.send();
+	    console.log(xhttp.responseText);
+	    //var response = JSON.parse(xhttp.responseText);
+	    //document.getElementById("demo").innerHTML = response.data.myvalue;
+	    //num = response.data.myvalue;
+	}
+</script>
+</body>
+
+</html>
