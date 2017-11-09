@@ -7,22 +7,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import T14DAOs.CreateEntreeDAO;
 import T14DAOs.CreateUserDAO;
 
 
-
-public class NewAccountServlet extends HttpServlet {
+public class NewEntreeServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String n=request.getParameter("username");
-		String p=request.getParameter("userpass");
-		String p2=request.getParameter("userpass2");
-		out.println("Your attempted username: "+n+"\n");
-		out.println("Your attempted password: "+p+"\n");
-		out.println("Your attempted password repeat: "+p2+"\n");
+		String n=request.getParameter("name");
+		String c=request.getParameter("category");
+		float ra= Float.parseFloat(request.getParameter("rating"));
+		String re=request.getParameter("restaurant");
+		float p = Float.parseFloat(request.getParameter("price"));
+		out.println("Your attempted entree name: "+n+"\n");
+		out.println("Your attempted category: "+c+"\n");
+		out.println("Your attempted rating: "+ra+"\n");
+		out.println("Your attempted restaurant: "+re+"\n");
+		out.println("Your attempted price: "+p+"\n");
+		
+
+		
 		/*p=p2;
 		if (p==p)
 		{
@@ -34,10 +41,10 @@ public class NewAccountServlet extends HttpServlet {
 		//CreateUserDAO.writeUserToTable();
 		//out.println("writeUserToTable() was just called.");
 		
-		CreateUserDAO.newUser(n, p);
-	    out.println("newUser(n, p) was just called.");
+		CreateEntreeDAO.newEntree(n, c, ra, re, p);
+	    out.println("newEntree() was just called.");
 		
-		RequestDispatcher rd=request.getRequestDispatcher("createaccount.html");
+		RequestDispatcher rd=request.getRequestDispatcher("mainpage.html");
 		rd.include(request,response);
 		
 		

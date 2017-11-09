@@ -2,10 +2,10 @@ package T14DAOs;
 import java.sql.*;
 
 
-public class CreateUserDAO
+public class CreateEntreeDAO
 {
 
-  public static void newUser(String username, String userPW)
+  public static void newEntree(String name, String category, float rating, String restaurant, float price)
   {
     try
     {
@@ -16,7 +16,7 @@ public class CreateUserDAO
       Connection conn = DriverManager.getConnection(myUrl, "root", "team14");
     
       PreparedStatement oPrStmt = conn
-				.prepareStatement("SELECT MAX(UserNum) FROM users;");// ? represents some parameter to include
+				.prepareStatement("SELECT MAX(EntreeNum) FROM entrees;");// ? represents some parameter to include
 																						
 		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
 		rs.first();
@@ -28,8 +28,8 @@ public class CreateUserDAO
       //String query = " insert into users (first_name, last_name, date_created, is_admin, num_points)"
         //+ " values (?, ?, ?, ?, ?)";
       
-      String query = "INSERT INTO users (UserNum, UserID, UserPW, UserAdminStatus)" +
-    	         " values (?, ?, ?, ?)";
+      String query = "INSERT INTO entrees (EntreeNum, EntreeName, EntreeCategory, AverageRating, Restaurant, Price) "+
+    	          "values (?, ?, ?, ?, ?, ?)";
 
       // create the mysql insert preparedstatement
       PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -40,9 +40,11 @@ public class CreateUserDAO
       //preparedStmt.setInt    (5, 5000);
       
       preparedStmt.setInt    (1, highestID+1);	//increments the highestID so that new users always have a unique one
-      preparedStmt.setString (2, username);
-      preparedStmt.setString (3, userPW);
-      preparedStmt.setInt    (4, 0);
+      preparedStmt.setString (2, name);
+      preparedStmt.setString (3, category);
+      preparedStmt.setFloat    (4, rating);
+      preparedStmt.setString    (5, restaurant);
+      preparedStmt.setFloat    (6, price);
 
       // execute the preparedstatement
       preparedStmt.execute();

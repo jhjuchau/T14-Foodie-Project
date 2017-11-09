@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+ <head>
+ <meta charset = "UTF-8">
+ <title>contact.php</title>
+ <style type = "text/css">
+  table, th, td {border: 1px solid black};
+ </style>
+ </head>
+ <body>
+
+<?php
+    // First connect to the database via your connection insert file
+    include_once $_SERVER["DOCUMENT_ROOT"]."/includes/pdo-conn.php"; 
+    
+    // This is a prepared statement, not necessary with this simple query with no variables, but anyway...
+    $sql = $conn->prepare("SELECT This, That, Other FROM MyTable") ; 
+    
+    // Execute the query, if there were variables, they could be bound within the brackets
+    $sql->execute() ;
+?>
+
+ </body>
+</html>

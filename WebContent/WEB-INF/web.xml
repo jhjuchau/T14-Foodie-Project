@@ -16,6 +16,15 @@
     <servlet-name>NewAccountServlet</servlet-name>
     <servlet-class>NewAccountServlet</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>NewEntreeServlet</servlet-name>
+    <servlet-class>NewEntreeServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>EntreeListDAO</servlet-name>
+    <servlet-class>EntreeListDAO</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
@@ -31,6 +40,14 @@
   <servlet-mapping>
     <servlet-name>NewAccountServlet</servlet-name>
     <url-pattern>/newaccount</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>NewEntreeServlet</servlet-name>
+    <url-pattern>/newentree</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>EntreeListServlet</servlet-name>
+    <url-pattern>/entreelist</url-pattern>
   </servlet-mapping>
   <error-page>
     <error-code>404</error-code>
