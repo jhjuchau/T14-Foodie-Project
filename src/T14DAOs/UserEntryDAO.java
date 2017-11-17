@@ -2,10 +2,10 @@ package T14DAOs;
 import java.sql.*;
 
 
-public class CreateUserDAO
+public class UserEntryDAO
 {
 
-  public static void newUser(String username, String userPW)
+  public static void newUser(String table, String item)
   {
     try
     {
@@ -17,7 +17,7 @@ public class CreateUserDAO
       Connection conn = DriverManager.getConnection(myUrl, "root", "team14");
     
       PreparedStatement oPrStmt = conn
-				.prepareStatement("SELECT MAX(UserNum) FROM users;");// ? represents some parameter to include
+				.prepareStatement("SELECT "+item+" FROM "+table+";");// ? represents some parameter to include
 																						
 		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
 		rs.first();

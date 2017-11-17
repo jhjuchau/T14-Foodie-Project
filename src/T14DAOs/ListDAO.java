@@ -6,10 +6,21 @@ package T14DAOs;
 */
 import java.sql.*;
 
-public class EntreeListDAO {
+//This modular method is designed to return a ResultSet
+//This ResultSet will contain all values 
+//	from a table specified by the String categoryToList
+//ie ListDAO.resultList(entrees) will return a ResultSet containing all entries
+//	in the 'entrees' table.
 
-	public static boolean validate(String name, String pass) {
-		boolean validLogin = false;
+//This DAO exists to make grabbing lists of users, entrees and restaurants
+//	as simple as possible.
+//Parsing through the ResultSet to make the data comprehensible
+//	is up to the calling method
+public class ListDAO {
+
+	public static ResultSet resultList(String categoryToList) {
+		boolean foundVals = false;
+		ResultSet rs = null;
 		try {
 			//defining database driver to use
 			Class.forName("com.mysql.jdbc.Driver");
@@ -30,22 +41,27 @@ public class EntreeListDAO {
 			// actual query to execute is
 			// select * from users where username = name and password = pass
 			PreparedStatement oPrStmt = con
-					.prepareStatement("select * from users where UserID=? and UserPW=?");// ? represents some parameter to include
+					.prepareStatement("select * from "+categoryToList);// ? represents some parameter to include
 																							
-			oPrStmt.setString(1, name);// parameter index start from 1
-			oPrStmt.setString(2, pass);
-			ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
+			//oPrStmt.setString(1, name);// parameter index start from 1
+			//oPrStmt.setString(2, pass);
+			rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
 			
 			//rs.next() shows that the resultset contains nect value or not
 			// for retriving multiple results, you can use while(rs.next)
 			
 			if (rs.next()) { //checking if the resultset has any value?   
-				validLogin = true;
+				foundVals = true;	//if a value is found in the result set
+			}
+			else{	//if no values are found in the result set
+				System.out.println("No values were found in the result set.");
+				System.out.println("The set will be returned null");
 			}
 		
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return validLogin;
+		
+		return rs;
 	}
 }

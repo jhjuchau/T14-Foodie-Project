@@ -24,6 +24,10 @@
     <servlet-name>EntreeListDAO</servlet-name>
     <servlet-class>EntreeListDAO</servlet-class>
   </servlet>
+   <servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>TestServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -46,9 +50,15 @@
     <url-pattern>/newentree</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-      <servlet-name>EntreeListServlet</servlet-name>
-    <url-pattern>/entreelist</url-pattern>
+      <servlet-name>EntreeListDAO</servlet-name>
+    <url-pattern>/list</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/testing</url-pattern>
+  </servlet-mapping>
+  
+  
   <error-page>
     <error-code>404</error-code>
     <location>/error.html</location>

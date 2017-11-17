@@ -9,16 +9,15 @@
  </head>
  <body>
 
-<?php
-    // First connect to the database via your connection insert file
-    include_once $_SERVER["DOCUMENT_ROOT"]."/includes/pdo-conn.php"; 
-    
-    // This is a prepared statement, not necessary with this simple query with no variables, but anyway...
-    $sql = $conn->prepare("SELECT This, That, Other FROM MyTable") ; 
-    
-    // Execute the query, if there were variables, they could be bound within the brackets
-    $sql->execute() ;
-?>
 
+<form action="entreelist">
+    <input type="submit" value="Return to main page" />
+</form>
+
+<form action="mainpage.html">
+    <input type="submit" value="Return to main page" />
+</form>
  </body>
+ 
+ 
 </html>
