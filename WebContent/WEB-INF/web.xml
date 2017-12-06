@@ -21,12 +21,16 @@
     <servlet-class>NewEntreeServlet</servlet-class>
   </servlet>
     <servlet>
-    <servlet-name>EntreeListDAO</servlet-name>
-    <servlet-class>EntreeListDAO</servlet-class>
+    <servlet-name>EntreeListServlet</servlet-name>
+    <servlet-class>EntreeListServlet</servlet-class>
   </servlet>
    <servlet>
     <servlet-name>TestServlet</servlet-name>
     <servlet-class>TestServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <servlet-name>PullSessionInfoServlet</servlet-name>
+    <servlet-class>PullSessionInfoServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -50,12 +54,16 @@
     <url-pattern>/newentree</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-      <servlet-name>EntreeListDAO</servlet-name>
-    <url-pattern>/list</url-pattern>
+      <servlet-name>EntreeListServlet</servlet-name>
+    <url-pattern>/listentrees</url-pattern>
   </servlet-mapping>
     <servlet-mapping>
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/testing</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PullSessionInfoServlet</servlet-name>
+    <url-pattern>/pullsession</url-pattern>
   </servlet-mapping>
   
   

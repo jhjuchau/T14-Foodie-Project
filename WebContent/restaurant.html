@@ -3,34 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to Foodie!</title>
-	<link rel="import" href="header.html">
+
 
 </head>
 
 
-<body class="centerText bg">
+<body>
+<br> 
 
-<form action="listentrees" method="post">
-Search for 
-<!-- <select name="SeachFor">
-  <option value="entree">Entree</option>
-  <option value="restaurant">Restaurant</option>
-</select>
--->
- entrees based on
- 
- 
- <select name="criteria">
-  <option value="EntreeName">Name</option>
-  <option value="EntreeCategory">Category (ie 'Thai', 'Burgers')</option>
-  <option value="Restaurant">Restaurant of Origin</option>
-</select>
-:
+Search for Restaurant:  <input type="text" placeholder="Enter search term..." name="searchText"/>
 
-  <input type="text" placeholder="Enter search term..." name="searchTerm"/>
-  <input type="submit" value="Search" />
-</form>
-  
+
+<button onclick="myfunction()">Search</button>
+
 <p id="demo"></p>
 
 
@@ -46,13 +31,9 @@ Search for
     <input type="submit" value="See a list of all entrees" />
 </form>
 
-<form action="pullsession" method="post">
-	<input type="submit" value="pull session info"/>
-</form>
-
 <script>
-	function fromCategory(){
-		int i=1;
+	function myfunction(){
+		document.getElementById("demo").innerHTML = "This button will eventually do something!";
 	}
 	
 	

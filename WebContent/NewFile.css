@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+.bg{
+	background:red;
+
+	background-image: url("https://media.cntraveler.com/photos/588f93a5dec6b5bb4141d736/master/pass/best-restaurants-los-angeles-alimento-aerial-view-2017.jpg");
+
+	/*
+	background-image: url("foodie_icon.jpg");
+	*/
+	/*
+	background-image: url("..?WebContent/images/foodie_icon.jpg");
+	*/
+}
+
+.centerText{
+	text-align:center;
+}
+
+.whitebg{
+	/*
+	background:white;
+	*/
+}

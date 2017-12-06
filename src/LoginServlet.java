@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import T14DAOs.LoginDao;
 
@@ -22,6 +23,12 @@ public class LoginServlet extends HttpServlet {
 		String p=request.getParameter("userpass");
 
 		if(LoginDao.validate(n, p)){
+            HttpSession session = request.getSession();
+            session.setAttribute("user", n);
+            if (n=="admin"){   session.setAttribute("adminstatus", 1);}
+            else{   session.setAttribute("adminstatus", 0);}
+            session.setAttribute("adminstatus", 1);
+            //response.sendRedirect("Welcome as called by sendRedirect");
 			RequestDispatcher rd=request.getRequestDispatcher("loggedin");
 			rd.forward(request,response);
 		}
