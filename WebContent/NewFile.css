@@ -15,10 +15,26 @@
 
 .centerText{
 	text-align:center;
+	font-color:white;
 }
 
 .whitebg{
 	/*
 	background:white;
 	*/
+}
+
+.whiteboldfont{
+	color: white;
+	font-weight:bold;
+	
+	h1{
+	color: white;
+    font-weight:bold;
+}
+	
+	body {
+    color: white;
+    font-weight:bold;
+}
 }

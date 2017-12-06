@@ -22,13 +22,11 @@ public class NewAccountServlet extends HttpServlet {
 		String p2=request.getParameter("userpass2");
 
 	
-		/*p=p2;
-		if (p==p)
+		if (p.equals(p2))
 		{
 			out.print("Your two password entries match!");
 		}
 		else {out.println("According to Java, your two password entries do NOT match, even if they actually do. I'll figure this out later");}
-		 */
 		
 		//CreateUserDAO.writeUserToTable();
 		//out.println("writeUserToTable() was just called.");
