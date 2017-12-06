@@ -1,17 +1,13 @@
 @CHARSET "ISO-8859-1";
 
 .bg{
-	background:red;
 
-	background-image: url("https://media.cntraveler.com/photos/588f93a5dec6b5bb4141d736/master/pass/best-restaurants-los-angeles-alimento-aerial-view-2017.jpg");
-
-	/*
-	background-image: url("foodie_icon.jpg");
-	*/
-	/*
-	background-image: url("..?WebContent/images/foodie_icon.jpg");
-	*/
 }
+
+.bgnew{
+	background-image: url("http://edengourmet.com/wp-content/uploads/2014/09/Swiss_Cheese_Garden_of_Eden.jpg");
+}
+
 
 .centerText{
 	text-align:center;
@@ -27,14 +23,4 @@
 .whiteboldfont{
 	color: white;
 	font-weight:bold;
-	
-	h1{
-	color: white;
-    font-weight:bold;
-}
-	
-	body {
-    color: white;
-    font-weight:bold;
-}
 }
