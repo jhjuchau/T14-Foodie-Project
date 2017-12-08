@@ -6,9 +6,13 @@ package T14DAOs;
 */
 import java.sql.*;
 
-public class LoginDao {
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-	public static boolean validate(String name, String pass) {
+public class LoginDao extends HttpServlet{
+
+	public static boolean validate(HttpServletRequest request, String name, String pass) {
 		boolean validLogin = false;
 		try {
 			//defining database driver to use
@@ -40,7 +44,15 @@ public class LoginDao {
 			// for retriving multiple results, you can use while(rs.next)
 			
 			if (rs.next()) { //checking if the resultset has any value?   
+				
+				int adminStatus = rs.getInt("UserAdminStatus");
+				int userNum = rs.getInt("UserNum");
+	            HttpSession session = request.getSession();
+	            session.setAttribute("user", name);
+	            session.setAttribute("adminstatus", adminStatus);
+	            session.setAttribute("usernum", userNum);
 				validLogin = true;
+				return validLogin;
 			}
 		
 		} catch (Exception e) {

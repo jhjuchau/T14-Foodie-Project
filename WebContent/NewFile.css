@@ -1,11 +1,9 @@
 @CHARSET "ISO-8859-1";
 
+
 .bg{
-
-}
-
-.bgnew{
-	background-image: url("http://edengourmet.com/wp-content/uploads/2014/09/Swiss_Cheese_Garden_of_Eden.jpg");
+	background-image: url("https://media.cntraveler.com/photos/588f93a5dec6b5bb4141d736/master/pass/best-restaurants-los-angeles-alimento-aerial-view-2017.jpg");
+	background-size: cover;
 }
 
 
@@ -23,4 +21,8 @@
 .whiteboldfont{
 	color: white;
 	font-weight:bold;
+}
+
+.buttonsred{
+	color:red;
 }

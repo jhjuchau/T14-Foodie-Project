@@ -1,0 +1,33 @@
+<head>
+  	<link rel="import" href="header.html">
+</head>
+
+
+<body class="centerText bg">
+<form action="newreview" method="post">
+
+<br><br>
+<h3>Leave a review on an entree</h3>
+
+	Entree Number (will become automatic later in development):<input type="text" name="entreeNum" /><br />
+	<br><br>
+		<select name="starcount">
+  			 <option value="1">1/5</option>
+			 <option value="2">2/5</option>
+ 			 <option value="3">3/5</option>
+ 			 <option value="4">4/5</option>
+ 			 <option value="5">5/5</option>
+		</select>
+		<br><br>
+		Leave your Review:
+	<br /> <textarea rows="4" cols="50" name ="review" placeholder="(Enter review here)"></textarea>
+	<br /> <input type="submit" value="Submit review!" />
+
+</form>
+
+
+<form action="mainpage.html">
+    <input type="submit" value="Return to main page" />
+</form>
+
+</body>

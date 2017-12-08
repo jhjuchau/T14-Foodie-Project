@@ -23,13 +23,9 @@ public class EntreeListDAO
     
       PreparedStatement oPrStmt = conn
 				.prepareStatement("SELECT * FROM entrees WHERE "+criteria+"='"+searchTerm+"';");// ? represents some parameter to include
-      
-     
-																						
+      																			
 		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
-			
-  
-      return rs;
+		return rs;
     }
     catch (Exception e)
     {

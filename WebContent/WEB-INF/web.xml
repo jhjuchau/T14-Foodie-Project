@@ -32,6 +32,14 @@
     <servlet-name>PullSessionInfoServlet</servlet-name>
     <servlet-class>PullSessionInfoServlet</servlet-class>
   </servlet>
+ <servlet>
+    <servlet-name>DisplayEntreePageServlet</servlet-name>
+    <servlet-class>DisplayEntreePageServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <servlet-name>NewReviewServlet</servlet-name>
+    <servlet-class>NewReviewServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -64,6 +72,14 @@
   <servlet-mapping>
     <servlet-name>PullSessionInfoServlet</servlet-name>
     <url-pattern>/pullsession</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>DisplayEntreePageServlet</servlet-name>
+    <url-pattern>/entreepage</url-pattern>
+  </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>NewReviewServlet</servlet-name>
+    <url-pattern>/newreview</url-pattern>
   </servlet-mapping>
   
   

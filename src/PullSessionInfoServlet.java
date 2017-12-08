@@ -18,21 +18,23 @@ public class PullSessionInfoServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
 		HttpSession session = request.getSession();
+		
         String user = (String)session.getAttribute("user");
         int adminStatus = (int) session.getAttribute("adminstatus");
+        int userNum = (int) session.getAttribute("usernum");
         
-        String n = "james";
-        if (user.equals(n)){session.setAttribute("adminstatus", 0);}
         //else{session.setAttribute("adminstatus", 0);}
         //session.setAttribute("adminstatus", 1);
         
         
-        out.println(adminStatus);
-        out.println("Welcome to Foodie, "+user+"!   ");
-        out.println("Your account does ");
-        if (adminStatus!=1){out.println("not ");}
-        out.println("have administrator privileges.");
+        out.println("Welcome to Foodie, "+user+"!   \n");
+        out.println("Your account has");
+        if (adminStatus!=1){out.println(" NO ");}
+        out.println("administrator privileges.\n");
+        out.println("Your unique user number is "+userNum);
+        
 		
 		RequestDispatcher rd=request.getRequestDispatcher("mainpage.html");
 		rd.include(request,response);

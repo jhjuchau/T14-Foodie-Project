@@ -22,12 +22,7 @@ public class LoginServlet extends HttpServlet {
 		String n=request.getParameter("username");
 		String p=request.getParameter("userpass");
 
-		if(LoginDao.validate(n, p)){
-            HttpSession session = request.getSession();
-            session.setAttribute("user", n);
-            if (n=="admin"){   session.setAttribute("adminstatus", 1);}
-            else{   session.setAttribute("adminstatus", 0);}
-            session.setAttribute("adminstatus", 1);
+		if(LoginDao.validate(request,n,p)){           
             //response.sendRedirect("Welcome as called by sendRedirect");
 			RequestDispatcher rd=request.getRequestDispatcher("loggedin");
 			rd.forward(request,response);
