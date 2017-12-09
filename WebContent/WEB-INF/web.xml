@@ -40,6 +40,10 @@
     <servlet-name>NewReviewServlet</servlet-name>
     <servlet-class>NewReviewServlet</servlet-class>
   </servlet>
+     <servlet>
+    <servlet-name>LeaveReviewServlet</servlet-name>
+    <servlet-class>LeaveReviewServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -80,6 +84,11 @@
       <servlet-mapping>
     <servlet-name>NewReviewServlet</servlet-name>
     <url-pattern>/newreview</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	     <servlet-name>LeaveReviewServlet</servlet-name>
+   		 <url-pattern>/leavereview</url-pattern>
   </servlet-mapping>
   
   

@@ -22,7 +22,7 @@ public class PullEntreeReviewsDAO
       Connection conn = DriverManager.getConnection(myUrl, "root", "team14");
     
       PreparedStatement oPrStmt = conn
-				.prepareStatement("SELECT * FROM reviews WHERE AboutEntree='"+entreeNum+"';");// ? represents some parameter to include
+				.prepareStatement("SELECT * FROM reviews WHERE AboutEntreeNumber='"+entreeNum+"';");// ? represents some parameter to include
   
 		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
 		return rs;

@@ -28,7 +28,7 @@ public class CreateReviewDAO
       //String query = " insert into users (first_name, last_name, date_created, is_admin, num_points)"
         //+ " values (?, ?, ?, ?, ?)";
       
-      String query = "INSERT INTO reviews (ReviewNum, ReviewText, AboutEntree, Author, Rating) "+
+      String query = "INSERT INTO reviews (ReviewNum, ReviewText, AboutEntreeNumber, Author, Rating) "+
     	          "values (?, ?, ?, ?, ?)";
 
       // create the mysql insert preparedstatement

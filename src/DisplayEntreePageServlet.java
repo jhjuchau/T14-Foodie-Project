@@ -31,7 +31,7 @@ public class DisplayEntreePageServlet extends HttpServlet {
 		
 		writer.println("Reviews on "+entreeName);
 		writer.println("<table BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
-	              +"<tr><th>Entree Name</th><th>Rating</th><th>Review</th></tr>");
+	              +"<tr><th>Posted by</th><th>Rating</th><th>Review</th></tr>");
 		
 		try {
 			
@@ -39,8 +39,8 @@ public class DisplayEntreePageServlet extends HttpServlet {
 				
 			//writer.println("<form action=\"entreepage\" method=\"post\">");
 				
-			  writer.println("<tr><td><center>"+result.getString("aboutEntree")+"</center></td>" +
-					  			"<td><center>"+result.getString("Rating")+"</center></td>"
+			  writer.println("<tr><td><center>"+result.getString("Author")+"</center></td>"
+					  	+	"<td><center>"+result.getString("Rating")+"</center></td>"
 					  		+		"<td><center>"+result.getString("ReviewText")+"</center></td></tr>");
 			  
 			  writer.println("</form>");
@@ -50,6 +50,10 @@ public class DisplayEntreePageServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		writer.println("</table>");
+		
+		writer.println("<form action=\"leavereview\" method=\"post\">");
+		writer.println("<td><center><input type=\"submit\" name=\"entreeNum\" value="+entreeNum+" /></center></td>");
+		writer.println("</tr>");
 			
 			RequestDispatcher rd=request.getRequestDispatcher("entree.html");
 			rd.include(request,response);

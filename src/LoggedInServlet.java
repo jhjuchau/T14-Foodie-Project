@@ -17,11 +17,14 @@ public class LoggedInServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String n=request.getParameter("username");
-		out.print("<h1>Welcome, "+n+"!</h1>");
-
 		
+		out.print("<head><link rel=\"import\" href=\"header.html\"></head>");
+		out.print("<div class=\"centerText whiteboldfont\">");
+		out.print("<h1>Welcome, "+n+"!</h1>");
+		out.print("</div>");
 		
 		RequestDispatcher rd=request.getRequestDispatcher("mainpage.html");
+		
 		rd.include(request,response);
 		
 		

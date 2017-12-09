@@ -11,3 +11,6 @@
 /DisplayEntreePageServlet.class
 /LoginFail.html
 /NewReviewServlet.class
+/DisplayEntreeReviewsServlet.class
+/displayLeaveReviewPageServlet.class
+/LeaveReviewServlet.class

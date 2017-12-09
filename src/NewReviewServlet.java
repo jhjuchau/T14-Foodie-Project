@@ -26,7 +26,7 @@ public class NewReviewServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int userNum = (int) session.getAttribute("usernum");
 		
-		
+		//CreateReviewDAO.newReview(String text, int entreeNum, int userNum, float rating)
 		CreateReviewDAO.newReview(text, entreeNum, userNum , count);
 	    out.println("newReview() was just called.");
 		

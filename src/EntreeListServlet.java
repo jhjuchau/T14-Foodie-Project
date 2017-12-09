@@ -30,7 +30,8 @@ public class EntreeListServlet extends HttpServlet {
 		ResultSet result = EntreeListDAO.listEntrees(criteria, searchTerm);
 		
 		writer.println("<table BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
-	              +"<tr><th>Entree Name</th><th>Restaurant</th><th>Average Rating</th><th>Entree Category</th><th>View Item Reviews</th></tr>");
+	              +"<tr><th>Entree Name</th><th>Restaurant</th><th>Average Rating</th>"
+	              + "<th>Entree Category</th><th>View Item Reviews</th><th>Leave a Review on this Entree</th></tr>");
 
 	try {
 		while(result.next()){
@@ -41,9 +42,12 @@ public class EntreeListServlet extends HttpServlet {
 				  			"<td><center>"+result.getString("Restaurant")+"</center></td>"
 				  		+		"<td><center>"+result.getString("AverageRating")+"</center></td>"
 				  		  		+	"<td><center>"+result.getString("EntreeCategory")+"</center></td>"
-		               					+ "<td><center><input type=\"submit\" name=\"entreeNum\" value="+entreeNum+" /></center></td></tr>");
-		  
+		               					+ "<td><center><input type=\"submit\" name=\"entreeNum\" value="+entreeNum+" /></center></td>");
 		  writer.println("</form>");
+		  
+		  writer.println("<form action=\"leavereview\" method=\"post\">");
+		  writer.println("<td><center><input type=\"submit\" name=\"entreeNum\" value="+entreeNum+" /></center></td>");
+		  writer.println("</tr>");
 		}
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
