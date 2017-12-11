@@ -18,8 +18,8 @@ public class LoggedInServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String n=request.getParameter("username");
 		
-		out.print("<head><link rel=\"import\" href=\"header.html\"></head>");
-		out.print("<div class=\"centerText whiteboldfont\">");
+		out.println("<head><link rel=\"import\" href=\"header.html\"></head>");
+		out.println("<div class = \"whitebolder\">");
 		out.print("<h1>Welcome, "+n+"!</h1>");
 		out.print("</div>");
 		

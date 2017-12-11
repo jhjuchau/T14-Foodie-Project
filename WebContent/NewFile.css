@@ -16,6 +16,18 @@
 	background-size: cover;
 }
 
+.resultsbg
+{
+	background-image: url("https://i.pinimg.com/736x/33/c0/37/33c037bb001c9f8bb1437e9fd607d9bc--lighting-retail-lighting-restaurant.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+.blackbg{
+	background-color: black;
+}
+
 .centerText{
 	text-align:center;
 }
@@ -83,7 +95,11 @@
     float:left;
     color:black;
 }
+.tableformat{
+	table, th, td 
+   border: 1px solid black;
 
+}
 .green{
 	color:green;
 	}
@@ -93,6 +109,9 @@
 .yellow{
 	color:yellow;
 }
+.black{
+	color:black;
+}
 
 .whitebold{
 	color:white;
@@ -101,8 +120,15 @@
 
 .whitebolder{
 	color:white;
-    font-weight: 1000;
-	
+    font-weight: 1000;	
+}
+
+.blackbold{
+	color:black;
+    font-weight: 900
+}
+.fontsizeup{
+	font-size:200%
 }
 .bold{
 	 font-weight: bold;

@@ -28,24 +28,45 @@ public class LeaveReviewServlet extends HttpServlet {
 		
 		writer.println("<head><link rel=\"import\" href=\"header.html\"></head>");
 		
-		writer.println("<body class=\"centerText bg\">"+
-					"<form action=\"newreview\" method=\"post\"><br><br>"
-					+ "<div class = \"whitebold\"><h3>Leave a review on "+entreeName+"</h3><br><br></div>"+
-				    "<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+">"+
+		writer.println("<body class=\"centerText mainbg\">"+
+					"<form action=\"newreview\" method=\"post\"><br><br>"+
+					"<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+">");
+		
+		writer.println("<div class = \"whitebold\" \"fontsizeup\"><h3>Leave a review on "+entreeName+"</h3></div><br><br>"+
+					"<br>"+
+				
+				    "<div class = \"whitebold\">Rating: </div>"+
 				    "<select name=\"starcount\">"+
 				    	"<option value=\"1\">1/5</option>"+
 				    	"<option value=\"2\">2/5</option>"+
 				    	"<option value=\"3\">3/5</option>"+
 				    	"<option value=\"4\">4/5</option>"+
 				    	"<option value=\"5\">5/5</option>"+
-				    "</select>"+
+				    "</select><br><br><br><br>");
+				    
+		writer.println("<div class = \"whitebold\">Check any that apply: "+ 
+					  "<br><br>"+	
+				
+				      "<input type=\"radio\" id=\"contactChoice1\" name=\"AttentionFlag\" value=1>"+
+				      "<label for=\"contactChoice1\">This item recently changed its recipe</label>"+
+				      "<br><br>"+
+				      
+				      "<input type=\"radio\" id=\"contactChoice2\" name=\"AttentionFlag\" value=2>"+
+				      "<label for=\"contactChoice2\">This item has been discontinued</label>"+
+				      "<br><br>"+
+
+				      "<input type=\"radio\" id=\"contactChoice3\" name=\"AttentionFlag\" value=3 checked>"+
+				      "<label for=\"contactChoice3\">None of the above</label>"+
+				      "<br><br>"+
+				      
+							"</div>"+
 				    
 					"<br><br> <div class = \"whitebold\">Leave your Review: </div>"+
 					"<br /> <textarea rows=\"6\" cols=\"60\" name =\"review\" placeholder=\"(Enter review here)\"></textarea>"+
 				    "<br /> <input type=\"submit\" value=\"Submit review!\" /></form>");
 
 
-writer.println("</body>");
+			writer.println("</body>");
 
 			RequestDispatcher rd=request.getRequestDispatcher("entree.html");
 			rd.include(request,response);

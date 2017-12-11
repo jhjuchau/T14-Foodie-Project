@@ -24,7 +24,8 @@ public class PullSessionInfoServlet extends HttpServlet {
         String user = (String)session.getAttribute("user");
         int adminStatus = (int) session.getAttribute("adminstatus");
         int userNum = (int) session.getAttribute("usernum");
-        
+        out.println("<head><link rel=\"import\" href=\"header.html\"></head>");
+		out.println("<div class = \"whitebolder\">");
         //else{session.setAttribute("adminstatus", 0);}
         //session.setAttribute("adminstatus", 1);
         
@@ -34,6 +35,7 @@ public class PullSessionInfoServlet extends HttpServlet {
         if (adminStatus!=1){out.println(" NO ");}
         out.println("administrator privileges.\n");
         out.println("Your unique user number is "+userNum);
+        out.println("</div>");
         
 		
 		RequestDispatcher rd=request.getRequestDispatcher("mainpage.html");

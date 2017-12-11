@@ -23,6 +23,9 @@ public class NewReviewServlet extends HttpServlet {
 		int entreeNum=Integer.parseInt(request.getParameter("entreeNum"));
 		float count= Float.parseFloat(request.getParameter("starcount"));
 		String text=request.getParameter("review");
+		int attentionFlag=Integer.parseInt(request.getParameter("AttentionFlag"));
+		
+		
 		HttpSession session = request.getSession();
 		int userNum = (int) session.getAttribute("usernum");
 		
@@ -32,7 +35,7 @@ public class NewReviewServlet extends HttpServlet {
 		out.println("<head><link rel=\"import\" href=\"header.html\"></head>");
 		
 		out.println("<div class = \"whitebold\"> ");
-	    out.println("Review successfully created!");
+	    out.println("Review successfully created with AttentionFlag: "+attentionFlag);
 	    out.println("</div>");
 		
 		RequestDispatcher rd=request.getRequestDispatcher("mainpage.html");

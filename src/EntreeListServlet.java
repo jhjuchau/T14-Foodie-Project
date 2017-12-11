@@ -31,6 +31,9 @@ public class EntreeListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
         int adminStatus = (int) session.getAttribute("adminstatus");
+        
+        writer.println("<head><link rel=\"import\" href=\"header.html\"></head>");
+		writer.println("<body class = \"blackbold tableformat resultsbg\">");
 
 				
 		ResultSet result = EntreeListDAO.listEntrees(criteria, searchTerm);
@@ -39,7 +42,7 @@ public class EntreeListServlet extends HttpServlet {
 			if (result.next())
 			{
 				result.previous();
-		writer.println("<table BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
+		writer.println("<table class=\"centerText\" BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
 	              +"<tr><th>Entree Name</th><th>Restaurant</th><th>Average Rating</th>"
 	              + "<th>Entree Category</th><th>View Item Reviews</th><th>Leave a Review on this Entree</th>");
 		
@@ -91,11 +94,13 @@ public class EntreeListServlet extends HttpServlet {
 			}
 		  
 		  writer.println("</tr>");
+		  writer.println("</div>");
 		}
 	} 
 			else
 			{
-				writer.println("<h3>No results found for that search... </h3>");
+				writer.println("</div>");
+				writer.println("<div class = \"centerText\"><h3>No results found for that search... </h3></div>");
 			}
 				
 		}catch (SQLException e) {

@@ -30,14 +30,14 @@ public class DisplayEntreePageServlet extends HttpServlet {
 		ResultSet result = PullEntreeReviewsDAO.listReviews(entreeNum);
 		String entreeName = PullEntreeInfoDAO.getName(entreeNum);
 		
-		
-		writer.println("<h2>Reviews on "+entreeName+": </h2>");
+		 writer.println("<head><link rel=\"import\" href=\"header.html\">"+
+				 "<style> table, th, td {border: 1px solid black; }</style></head>");
+		writer.println("<div class=\"sect centerText black\"><h2>Reviews on "+entreeName+": </h2></div>");
+		writer.println("<body class = \"blackbold tableformat resultsbg\">");
 		
 		try {
-		result.next();
 		if (result.next())
 	{
-		result.previous();
 		result.previous();
 		writer.println("<table BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
 	              +"<tr><th>Posted by</th><th>Rating</th><th>Review</th></tr>");
@@ -58,7 +58,8 @@ public class DisplayEntreePageServlet extends HttpServlet {
 		} 
 		else
 		{
-			writer.println("<h3>No reviews currently posted... Be the first to review "+entreeName+"! </h3>");
+			writer.println("<div class=\"centerText\" <h3>No reviews currently posted... Be the first to review "+entreeName+"! </h3></div>");
+			writer.println("</div>");
 		}
 		
 		}catch (SQLException e) {

@@ -38,8 +38,8 @@ public class AdminReviewServlet extends HttpServlet {
 					+ "<h3>Item in question: "+entreeName+", which is entree number: "+entreeNum+"</h3><br><br>"+
 					"<h2>Attention flag value: "+attentionFlag+"</h2>"+
 				    "<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+">");
-		
-					writer.println("For reference, <br>0=no action necessary, <br>1=new entree in need of approval, <br>2=recently altered recipe<br></div>");
+					
+				   writer.println("For reference, <br>0=no action necessary, <br>1=new entree in need of approval, <br>2=recently altered recipe<br></div>");
 		
 				   if(attentionFlag!=0){ 
 					   
@@ -52,7 +52,6 @@ public class AdminReviewServlet extends HttpServlet {
 					   writer.println("<div class = \"whitebolder\"> No action needs to be taken for this item.</div>");
 					   writer.println("<input type=\"hidden\" name=\"actionval\" value=2>");
 					   writer.println("<input type=\"submit\" value=\"Delete this item\">");
-					   
 				   }
 		
 				    writer.println("</form><br><br>");						//form close to adminAction

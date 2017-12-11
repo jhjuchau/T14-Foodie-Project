@@ -2,20 +2,36 @@
 <html lang = "en-US">
  <head>
  <meta charset = "UTF-8">
- <title>contact.php</title>
  <style type = "text/css">
-  table, th, td {border: 1px solid black};
+  table, th, td {border: 2px solid black};
+  
  </style>
  </head>
- <body>
-
-
-
+ <body class="centerText">
 
 <br><br><br><br>
-<form action="mainpage.html">
-    <input type="submit" value="Return to main page" />
+<form action="listentrees" method="post">
+<div class="sect black">Search again for entrees based on </div>
+ 
+ 
+<select class="black" name="criteria">
+  <option value="EntreeName">Name</option>
+  <option value="EntreeCategory">Category (ie 'Thai', 'Burgers')</option>
+  <option value="Restaurant">Restaurant of Origin</option>
+</select>
+:
+
+<strong><input type="text" placeholder="Enter search term..." name="searchTerm"/></strong>
+  <input class="black" type="submit" value="Search" />
 </form>
+
+<br><br><br><br>
+
+<form action="mainpage.html">
+    <input class="black" type="submit" value="Return to main page" />
+</form>
+
+
  </body>
  
  

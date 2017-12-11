@@ -36,6 +36,9 @@ public class AdminActionServlet extends HttpServlet {
 			ChangeEntreeDAO.clearFlag(entreeNum);
 			out.println("The flag on item number "+entreeNum+" has been cleared!<br>");
 			out.println("</div>");
+			
+			RequestDispatcher rd=request.getRequestDispatcher("mainpage.html");
+			rd.include(request,response);
 		}
 		
 		if (actionVal==2)
