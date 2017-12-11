@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to Foodie!</title>
+	<title>Displaying reviews!</title>
 </head>
 
 
 <body>
 <br> <br> <br> 
-You're in entree.html!
+
+
+ <button onclick="goBack()">Back to search results</button>
+ 
+ <br> <br> 
 
 <form action="mainpage.html">
     <input type="submit" value="Return to main page" />
 </form>
+
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script> 
 
 </body>
 

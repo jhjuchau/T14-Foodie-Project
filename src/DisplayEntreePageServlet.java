@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import T14DAOs.LoginDao;
+import T14DAOs.PullEntreeNameDAO;
 import T14DAOs.PullEntreeReviewsDAO;
 
 
@@ -24,16 +25,22 @@ public class DisplayEntreePageServlet extends HttpServlet {
 		
 		int	entreeNum = Integer.parseInt(request.getParameter("entreeNum"));
 
-		writer.println("The entree number from the previous page is "+entreeNum);
 		
 		ResultSet result = PullEntreeReviewsDAO.listReviews(entreeNum);
-		String entreeName = PullEntreeReviewsDAO.singleEntreeInfo(entreeNum);
+		String entreeName = PullEntreeNameDAO.getName(entreeNum);
 		
-		writer.println("Reviews on "+entreeName);
+		writer.println("<h2>Reviews on "+entreeName+": </h2>");
+		
+		try {
+		result.next();
+		if (result.next())
+	{
+		result.previous();
+		result.previous();
 		writer.println("<table BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
 	              +"<tr><th>Posted by</th><th>Rating</th><th>Review</th></tr>");
 		
-		try {
+		
 			
 			while(result.next()){
 				
@@ -45,14 +52,22 @@ public class DisplayEntreePageServlet extends HttpServlet {
 			  
 			  writer.println("</form>");
 			}
-		} catch (SQLException e) {
+			writer.println("</table>");
+		} 
+		else
+		{
+			writer.println("<h3>No reviews currently posted... Be the first to review "+entreeName+"! </h3>");
+		}
+		
+		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		writer.println("</table>");
-		
+				
 		writer.println("<form action=\"leavereview\" method=\"post\">");
-		writer.println("<td><center><input type=\"submit\" name=\"entreeNum\" value="+entreeNum+" /></center></td>");
+		writer.println("<br><input type=\"submit\" value=\"Leave your own review!\"/>");
+		writer.println("<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+" />");
+		writer.println("</form>");
 		writer.println("</tr>");
 			
 			RequestDispatcher rd=request.getRequestDispatcher("entree.html");

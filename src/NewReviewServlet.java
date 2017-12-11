@@ -28,7 +28,7 @@ public class NewReviewServlet extends HttpServlet {
 		
 		//CreateReviewDAO.newReview(String text, int entreeNum, int userNum, float rating)
 		CreateReviewDAO.newReview(text, entreeNum, userNum , count);
-	    out.println("newReview() was just called.");
+	    out.println("Review successfully created!");
 		
 		RequestDispatcher rd=request.getRequestDispatcher("mainpage.html");
 		rd.include(request,response);

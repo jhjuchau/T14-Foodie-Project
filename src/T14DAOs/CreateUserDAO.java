@@ -20,6 +20,7 @@ public class CreateUserDAO
 				.prepareStatement("SELECT MAX(UserNum) FROM users;");// ? represents some parameter to include
 																						
 		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
+		rs.first();
 		Integer highestID = rs.getInt(1);	//highestID becomes the integer stored from this first query
 		
 		//System.out.println("The value returned by rs.getInt(1) = "+ highestID);

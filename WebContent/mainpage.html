@@ -4,12 +4,11 @@
 	<meta charset="utf-8">
 	<title>Welcome to Foodie!</title>
 	<link rel="import" href="header.html">
-
 </head>
 
 
 <body class="centerText bg">
-
+<br><br><br>
 <form action="listentrees" method="post">
 Search for 
 <!-- <select name="SeachFor">
@@ -30,15 +29,15 @@ Search for
   <input type="text" placeholder="Enter search term..." name="searchTerm"/>
   <input type="submit" value="Search" />
 </form>
-  
-<p id="demo"></p>
+ 
 
 
 <br><br><br><br>
 
 <form action="leavereview.html" method="post">
-	<input type="submit" value="Leave a new review (not for final product)"/>
+	<input type="submit" value="Leave a new review"/>
 </form>
+<br>
 
 <form action="createentree.html">
     <input type="submit" value="Post a new entree!" />
@@ -46,15 +45,14 @@ Search for
 
 <br><br>
 
-<form action="entreelist.html">
-    <input type="submit" value="See a list of all entrees" />
-</form>
-
 <form action="pullsession" method="post">
 	<input type="submit" value="pull session info"/>
 </form>
 
 
+
+
+</body>
 
 <script>
 	function fromCategory(){
@@ -78,6 +76,5 @@ Search for
 	    //num = response.data.myvalue;
 	}
 </script>
-</body>
 
 </html>

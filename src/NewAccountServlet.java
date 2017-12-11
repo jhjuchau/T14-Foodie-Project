@@ -24,19 +24,23 @@ public class NewAccountServlet extends HttpServlet {
 	
 		if (p.equals(p2))
 		{
-			out.print("Your two password entries match!");
+			CreateUserDAO.newUser(n, p);
+			out.println("Account Created! Use those credentials to log in.");
+			RequestDispatcher rd=request.getRequestDispatcher("index.html");
+			rd.include(request,response);
 		}
-		else {out.println("According to Java, your two password entries do NOT match, even if they actually do. I'll figure this out later");}
+		else 
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("createaccount.html");
+			rd.include(request,response);
+			out.println("<br><br>");
+			out.println("<h2>Your two password entries don't match. Try again!</h2>");
+		}
 		
 		//CreateUserDAO.writeUserToTable();
 		//out.println("writeUserToTable() was just called.");
 		
-		CreateUserDAO.newUser(n, p);
-		
-		out.println("Account Created! Use those credentials to log in.");
-		
-		RequestDispatcher rd=request.getRequestDispatcher("index.html");
-		rd.include(request,response);
+
 		
 		
 		

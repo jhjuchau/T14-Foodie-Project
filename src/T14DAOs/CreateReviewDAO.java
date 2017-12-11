@@ -49,6 +49,7 @@ public class CreateReviewDAO
       preparedStmt.execute();
       
       conn.close();
+      
     }
     catch (Exception e)
     {
