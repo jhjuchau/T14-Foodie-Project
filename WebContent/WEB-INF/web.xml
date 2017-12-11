@@ -44,6 +44,18 @@
     <servlet-name>LeaveReviewServlet</servlet-name>
     <servlet-class>LeaveReviewServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AdminReviewServlet</servlet-name>
+    <servlet-class>AdminReviewServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>AdminActionServlet</servlet-name>
+    <servlet-class>AdminActionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ConfirmDeleteServlet</servlet-name>
+    <servlet-class>ConfirmDeleteServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -89,6 +101,21 @@
   <servlet-mapping>
   	     <servlet-name>LeaveReviewServlet</servlet-name>
    		 <url-pattern>/leavereview</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+  	     <servlet-name>AdminReviewServlet</servlet-name>
+   		 <url-pattern>/adminreview</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	     <servlet-name>AdminActionServlet</servlet-name>
+   		 <url-pattern>/adminaction</url-pattern>
+  </servlet-mapping>
+  
+    <servlet-mapping>
+  	     <servlet-name>ConfirmDeleteServlet</servlet-name>
+   		 <url-pattern>/confirmdelete</url-pattern>
   </servlet-mapping>
   
   

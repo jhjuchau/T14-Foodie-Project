@@ -44,7 +44,6 @@ public class LoginDao extends HttpServlet{
 			// for retriving multiple results, you can use while(rs.next)
 			
 			if (rs.next()) { //checking if the resultset has any value?   
-				
 				int adminStatus = rs.getInt("UserAdminStatus");
 				int userNum = rs.getInt("UserNum");
 	            HttpSession session = request.getSession();

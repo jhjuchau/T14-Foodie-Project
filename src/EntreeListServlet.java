@@ -10,10 +10,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import T14DAOs.CreateUserDAO;
 import T14DAOs.EntreeListDAO;
 import T14DAOs.LoginDao;
+import T14DAOs.PullEntreeInfoDAO;
 
 
 
@@ -26,7 +28,11 @@ public class EntreeListServlet extends HttpServlet {
 		
 		String criteria=request.getParameter("criteria");
 		String searchTerm=request.getParameter("searchTerm");
+		HttpSession session = request.getSession();
+		
+        int adminStatus = (int) session.getAttribute("adminstatus");
 
+				
 		ResultSet result = EntreeListDAO.listEntrees(criteria, searchTerm);
 		
 			try {
@@ -35,18 +41,37 @@ public class EntreeListServlet extends HttpServlet {
 				result.previous();
 		writer.println("<table BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
 	              +"<tr><th>Entree Name</th><th>Restaurant</th><th>Average Rating</th>"
-	              + "<th>Entree Category</th><th>View Item Reviews</th><th>Leave a Review on this Entree</th></tr>");
+	              + "<th>Entree Category</th><th>View Item Reviews</th><th>Leave a Review on this Entree</th>");
+		
+		if (adminStatus==1){
+			writer.println("<th>Admin Review</th>");
+		}
 
+		
+		writer.println("</tr>");
 		while(result.next()){
 			int entreeNum = result.getInt("EntreeNum");
+			int attentionFlag = PullEntreeInfoDAO.getAttentionFlag(entreeNum);
 			
 			
 		  writer.println("<tr><td><center>"+result.getString("EntreeName")+"</center></td>" +
 				  			"<td><center>"+result.getString("Restaurant")+"</center></td>"
 				  		+		"<td><center>"+result.getString("AverageRating")+"</center></td>"
 				  		  		+	"<td><center>"+result.getString("EntreeCategory")+"</center></td>");
-		               					
+		      
+		  if(attentionFlag!=0){
+			  if (adminStatus==1){
+				  writer.println("<td><center>This item needs admin attention.</center></td>");
+				  writer.println("<td><center>This item needs admin attention.</center></td>");
+			  }
+			  else
+			  {
+				  writer.println("<td><center>This item hasn't been approved by administrators yet.</center></td>");
+				  writer.println("<td><center>This item hasn't been approved by administrators yet.</center></td>");
+			  }
+		  }
 		  
+		  else{
 		  writer.println("<form action=\"entreepage\" method=\"post\">");
 		  writer.println("<td><center><input type=\"submit\" value=\"Read reviews for this entree!\"/></center></td>");
 		  writer.println("<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+" />");
@@ -55,7 +80,17 @@ public class EntreeListServlet extends HttpServlet {
 		  writer.println("<form action=\"leavereview\" method=\"post\">");
 		  writer.println("<td><center><input type=\"submit\" value=\"Write a review for this item!\"/></center></td>");
 		  writer.println("<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+" />");
-		  writer.println("</form></tr>");
+		  writer.println("</form>");
+		  
+		}
+		  if (adminStatus==1){
+			  writer.println("<form action=\"adminreview\" method=\"post\">");
+			  writer.println("<td><center><input type=\"submit\" value=\"Perform admin review for this item\"/></center></td>");
+			  writer.println("<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+" />");
+			  writer.println("</form>");
+			}
+		  
+		  writer.println("</tr>");
 		}
 	} 
 			else

@@ -1,14 +1,16 @@
 package T14DAOs;
 
-
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 
 
 
-public class PullEntreeReviewsDAO
+public class PullEntreeInfoDAO
 {
-  public static ResultSet listReviews(int entreeNum)
+  public static String getName(int entreeNum)
   {
+	  String entreeName = "no exception";
 	try
     {
       // create a mysql database connection
@@ -19,22 +21,24 @@ public class PullEntreeReviewsDAO
       Connection conn = DriverManager.getConnection(myUrl, "root", "team14");
     
       PreparedStatement oPrStmt = conn
-				.prepareStatement("SELECT * FROM reviews WHERE AboutEntreeNumber='"+entreeNum+"';");// ? represents some parameter to include
+				.prepareStatement("SELECT * FROM entrees WHERE EntreeNum="+entreeNum+";");// ? represents some parameter to include
   
-		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
-		return rs;
+		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from database
+		rs.next();
+		entreeName = rs.getString("EntreeName");
+		return entreeName;
 		
     }catch (Exception e)
     {
       System.err.println("Got an exception!");
       System.err.println(e.getMessage());
     }
-    return null;
+    return "didn't work";
   }
   
-  public static String singleEntreeInfo(int entreeNum)
+  public static int getAttentionFlag(int entreeNum)
   {
-	  
+	  int AttentionFlag = -1;
 	try
     {
       // create a mysql database connection
@@ -45,18 +49,20 @@ public class PullEntreeReviewsDAO
       Connection conn = DriverManager.getConnection(myUrl, "root", "team14");
     
       PreparedStatement oPrStmt = conn
-				.prepareStatement("SELECT * FROM entrees WHERE EntreeNum='"+entreeNum+"';");// ? represents some parameter to include
-      																			
-		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
-		String entreeName = rs.getString("EntreeName");
-		return entreeName;
-    }
-    catch (Exception e)
+				.prepareStatement("SELECT * FROM entrees WHERE EntreeNum="+entreeNum+";");// ? represents some parameter to include
+  
+		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from database
+		rs.next();
+		AttentionFlag = rs.getInt("AttentionFlag");
+		return AttentionFlag;
+		
+    }catch (Exception e)
     {
       System.err.println("Got an exception!");
       System.err.println(e.getMessage());
     }
-    return "blah";
+    return -2;
   }
+  
   
 }

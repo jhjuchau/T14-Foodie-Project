@@ -1,28 +1,109 @@
 @CHARSET "ISO-8859-1";
 
-
 .bg{
-	background-image: url("https://media.cntraveler.com/photos/588f93a5dec6b5bb4141d736/master/pass/best-restaurants-los-angeles-alimento-aerial-view-2017.jpg");
+	background-image: url("https://static.pexels.com/photos/5317/food-salad-restaurant-person.jpg");
 	background-size: cover;
-}
-
-
-.centerText{
-	text-align:center;
-	font-color:white;
-}
-
-.whitebg{
 	/*
-	background:white;
+	background-image: url("foodie_icon.jpg");
+	*/
+	/*
+	background-image: url("..?WebContent/images/foodie_icon.jpg");
 	*/
 }
 
-.whiteboldfont{
-	color: white;
-	font-weight:bold;
+.mainbg{
+	background-image: url("https://ak3.picdn.net/shutterstock/videos/16361323/thumb/1.jpg?i10c=img.resize(height:160)");
+	background-size: cover;
 }
 
-.buttonsred{
+.centerText{
+	text-align:center;
+}
+
+.whitebg{
+	background:white;
+}
+
+.placeholderText{
+	color:#C7C7CD;
+}
+
+.black-font{
+	color:black;	
+}
+
+.intro-text{
+	font-size: 90px;
+      font-weight: 700;
+      line-height: 50px;
+      margin-bottom: 25px;
+      font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+       color: WhiteSmoke;
+}
+
+.section {
+    font-size: 16px;
+    font-weight: 650;
+    font-style: italic;
+    margin-bottom: 75px;
+    text-transform: none;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    
+.account{
+    font-size: 50px;
+    font-weight: 500;
+      line-height: 50px;
+      margin-bottom: 25px;
+      font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: MintCream; }
+    
+    .sect{
+    font-size: 25px;
+    font-weight: 650;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: MintCream;
+    }
+    
+    .entree{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #3bbfef;}
+    
+.left {
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+.right {
+    width: 0%;
+    margin-left: 10px;
+    float:left;
+    color:black;
+}
+
+.green{
+	color:green;
+	}
+.red{
 	color:red;
+}
+.yellow{
+	color:yellow;
+}
+
+.whitebold{
+	color:white;
+    font-weight: 900;
+}
+
+.whitebolder{
+	color:white;
+    font-weight: 1000;
+	
+}
+.bold{
+	 font-weight: bold;
 }

@@ -28,8 +28,8 @@ public class CreateEntreeDAO
       //String query = " insert into users (first_name, last_name, date_created, is_admin, num_points)"
         //+ " values (?, ?, ?, ?, ?)";
       
-      String query = "INSERT INTO entrees (EntreeNum, EntreeName, EntreeCategory, AverageRating, Restaurant, Price) "+
-    	          "values (?, ?, ?, ?, ?, ?)";
+      String query = "INSERT INTO entrees (EntreeNum, EntreeName, EntreeCategory, AverageRating, Restaurant, Price, AttentionFlag) "+
+    	          "values (?, ?, ?, ?, ?, ?, ?)";
 
       // create the mysql insert preparedstatement
       PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -42,9 +42,10 @@ public class CreateEntreeDAO
       preparedStmt.setInt    (1, highestID+1);	//increments the highestID so that new users always have a unique one
       preparedStmt.setString (2, name);
       preparedStmt.setString (3, category);
-      preparedStmt.setFloat    (4, rating);
-      preparedStmt.setString    (5, restaurant);
-      preparedStmt.setFloat    (6, price);
+      preparedStmt.setFloat  (4, rating);
+      preparedStmt.setString (5, restaurant);
+      preparedStmt.setFloat  (6, price);
+      preparedStmt.setInt    (7, 1);
 
       // execute the preparedstatement
       preparedStmt.execute();

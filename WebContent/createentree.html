@@ -1,20 +1,37 @@
 <head>
   	<link rel="import" href="header.html">
 </head>
-<body class="centerText bg">
+
+<body class="centerText mainbg">
 <form action="newentree" method="post">
 
 <br><br>
-<h3>Create an entree</h3>
+<div class="account text-uppercase">Create an entree</div>
 
-	Entree Name:<input type="text" name="name" /><br />
-	<br /> Enter Item Category (ie 'sushi', 'coffee', etc):<input type="text" placeholder="(category)"name="category" /><br />
-	<br /> Restaurant of Origin:<input type="text" name="restaurant" /><br />
-	<br /> Price (without currency symbols, decimal points are fine!): <input type="text" name="price" /><br />
-	<br /> Initial Rating:<input type="text" name="rating" /><br />
-	<br /> Initial Review: <input type="text" name="review" /><br />
-	<br /> <input type="submit" value="Create entree!" />
+<div class="entree">
+	<div class="left">Entree Name:</div>
+	<div class="right"><input type="text" placeholder="(name)" name="name" /></div><br />
+	
+	
+	<br /> <div class="left">Enter Item Category (ie 'sushi', 'coffee', etc):</div>
+	<div class="right"><input type="text" placeholder="(category)"name="category" /></div><br />
+	
+	
+	<br /> <div class="left">Initial Rating:</div>
+	<div class="right placeholderText"><select name="rating">
+  			 <option value="1.0">1/5</option>
+			 <option value="2.0">2/5</option>
+ 			 <option value="3.0">3/5</option>
+ 			 <option value="4.0">4/5</option>
+ 			 <option value="5.0">5/5</option>
+		</select></div>
+	<br /> <div class="left">Restaurant of Origin:</div><div class="right"><input type="text" placeholder="(restaurant)" name="restaurant" /></div><br />
+	<br /> <div class="left">Price: </div><div class="right"><input type="text" placeholder="(price)" name="price" /></div><br />
+	
+	
+	<br /> <strong><div class="section black-font"><input type="submit" value="Create entree!" /></strong></div>
 
+	</div>
 
 </form>
 
@@ -24,6 +41,3 @@
 </form>
 
 </body>
-
-//longform text box
-//all column values from meeting

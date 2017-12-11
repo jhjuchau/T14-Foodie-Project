@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import T14DAOs.LoginDao;
-import T14DAOs.PullEntreeNameDAO;
+import T14DAOs.PullAuthorNameDAO;
+import T14DAOs.PullEntreeInfoDAO;
 import T14DAOs.PullEntreeReviewsDAO;
 
 
@@ -27,7 +28,8 @@ public class DisplayEntreePageServlet extends HttpServlet {
 
 		
 		ResultSet result = PullEntreeReviewsDAO.listReviews(entreeNum);
-		String entreeName = PullEntreeNameDAO.getName(entreeNum);
+		String entreeName = PullEntreeInfoDAO.getName(entreeNum);
+		
 		
 		writer.println("<h2>Reviews on "+entreeName+": </h2>");
 		
@@ -40,13 +42,13 @@ public class DisplayEntreePageServlet extends HttpServlet {
 		writer.println("<table BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
 	              +"<tr><th>Posted by</th><th>Rating</th><th>Review</th></tr>");
 		
-		
-			
 			while(result.next()){
+				int userNum = result.getInt("Author");
+				String author = PullAuthorNameDAO.getName(userNum);
 				
 			//writer.println("<form action=\"entreepage\" method=\"post\">");
 				
-			  writer.println("<tr><td><center>"+result.getString("Author")+"</center></td>"
+			  writer.println("<tr><td><center>"+author+"</center></td>"
 					  	+	"<td><center>"+result.getString("Rating")+"</center></td>"
 					  		+		"<td><center>"+result.getString("ReviewText")+"</center></td></tr>");
 			  

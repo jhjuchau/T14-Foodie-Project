@@ -1,16 +1,14 @@
 package T14DAOs;
 
-import importedMethods.ResultsDecoratorHTML;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
 
 
-public class PullEntreeNameDAO
+public class PullAuthorNameDAO
 {
-  public static String getName(int entreeNum)
+  public static String getName(int userNum)
   {
 	  String entreeName = "no exception";
 	try
@@ -23,11 +21,11 @@ public class PullEntreeNameDAO
       Connection conn = DriverManager.getConnection(myUrl, "root", "team14");
     
       PreparedStatement oPrStmt = conn
-				.prepareStatement("SELECT * FROM entrees WHERE EntreeNum="+entreeNum+";");// ? represents some parameter to include
+				.prepareStatement("SELECT * FROM users WHERE UserNum="+userNum+";");// ? represents some parameter to include
   
 		ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from database
 		rs.next();
-		entreeName = rs.getString("EntreeName");
+		entreeName = rs.getString("UserID");
 		return entreeName;
 		
     }catch (Exception e)

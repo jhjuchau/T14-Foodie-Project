@@ -16,39 +16,26 @@ public class NewEntreeServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		PrintWriter writer = response.getWriter();
 		String n=request.getParameter("name");
 		String c=request.getParameter("category");
 		float ra= Float.parseFloat(request.getParameter("rating"));
 		String re=request.getParameter("restaurant");
 		float p = Float.parseFloat(request.getParameter("price"));
-		out.println("Your attempted entree name: "+n+"\n");
-		out.println("Your attempted category: "+c+"\n");
-		out.println("Your attempted rating: "+ra+"\n");
-		out.println("Your attempted restaurant: "+re+"\n");
-		out.println("Your attempted price: "+p+"\n");
-		
 
 		
-		/*p=p2;
-		if (p==p)
-		{
-			out.print("Your two password entries match!");
-		}
-		else {out.println("According to Java, your two password entries do NOT match, even if they actually do. I'll figure this out later");}
-		 */
-		
-		//CreateUserDAO.writeUserToTable();
-		//out.println("writeUserToTable() was just called.");
-		
 		CreateEntreeDAO.newEntree(n, c, ra, re, p);
-	    out.println("newEntree() was just called.");
+		
+		writer.println("<head><link rel=\"import\" href=\"header.html\"></head>");
+		writer.println("<div class=\"whitebold\">");
+		writer.println("Your new entree, "+n+", has been uploaded for admin review!\n");
+		writer.println("</div>");
 		
 		RequestDispatcher rd=request.getRequestDispatcher("mainpage.html");
 		rd.include(request,response);
 		
 		
-		out.close();
+		writer.close();
 	}
 
 }
