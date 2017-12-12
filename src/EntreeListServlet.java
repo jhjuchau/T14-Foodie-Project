@@ -43,7 +43,7 @@ public class EntreeListServlet extends HttpServlet {
 			if (result.next())
 			{
 				result.previous();
-		writer.println("<table class=\"centerText\" BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=75%>"
+		writer.println("<table class=\"centerText\" BORDER=2 CELLPADDING=1 CELLSPACING=1 WIDTH=100%>"
 	              +"<tr><th>Entree Name</th><th>Restaurant</th><th>Average Rating</th>"
 	              + "<th>Entree Category</th><th>View Item Reviews</th><th>Leave a Review on this Entree</th>");
 		
