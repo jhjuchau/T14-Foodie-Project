@@ -32,7 +32,7 @@ public class DisplayEntreePageServlet extends HttpServlet {
 		
 		 writer.println("<head><link rel=\"import\" href=\"header.html\">"+
 				 "<style> table, th, td {border: 1px solid black; }</style></head>");
-		writer.println("<div class=\"sect centerText black\"><h2>Reviews on "+entreeName+": </h2></div>");
+		writer.println("<div class=\"sect black\"><h2>Reviews on "+entreeName+": </h2></div>");
 		writer.println("<body class = \"blackbold tableformat resultsbg\">");
 		
 		try {

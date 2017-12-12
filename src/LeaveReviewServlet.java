@@ -32,9 +32,7 @@ public class LeaveReviewServlet extends HttpServlet {
 					"<form action=\"newreview\" method=\"post\"><br><br>"+
 					"<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+">");
 		
-		writer.println("<div class = \"whitebold\" \"fontsizeup\"><h3>Leave a review on "+entreeName+"</h3></div><br><br>"+
-					"<br>"+
-				
+		writer.println("<div class = \"whitebold\" \"fontsizeup\"><h3>Leave a review on "+entreeName+"</h3></div><br><br>"+				
 				    "<div class = \"whitebold\">Rating: </div>"+
 				    "<select name=\"starcount\">"+
 				    	"<option value=\"1\">1/5</option>"+
@@ -44,7 +42,7 @@ public class LeaveReviewServlet extends HttpServlet {
 				    	"<option value=\"5\">5/5</option>"+
 				    "</select><br><br><br><br>");
 				    
-		writer.println("<div class = \"whitebold\">Check any that apply: "+ 
+		/*writer.println("<div class = \"whitebold\">"+ 
 					  "<br><br>"+	
 				
 				      "<input type=\"radio\" id=\"contactChoice1\" name=\"AttentionFlag\" value=1>"+
@@ -59,11 +57,11 @@ public class LeaveReviewServlet extends HttpServlet {
 				      "<label for=\"contactChoice3\">None of the above</label>"+
 				      "<br><br>"+
 				      
-							"</div>"+
+							"</div>");*/
 				    
-					"<br><br> <div class = \"whitebold\">Leave your Review: </div>"+
-					"<br /> <textarea rows=\"6\" cols=\"60\" name =\"review\" placeholder=\"(Enter review here)\"></textarea>"+
-				    "<br /> <input type=\"submit\" value=\"Submit review!\" /></form>");
+			writer.println("<br> <div class = \"whitebold\">Leave your Review: </div>"+
+					"<br /> <textarea rows=\"6\" cols=\"65\" name =\"review\" placeholder=\"(Enter review here)\"></textarea>"+
+				    "<br><br /> <input type=\"submit\" value=\"Submit review!\" /></form>");
 
 
 			writer.println("</body>");

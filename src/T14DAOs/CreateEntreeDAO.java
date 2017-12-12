@@ -4,9 +4,10 @@ import java.sql.*;
 
 public class CreateEntreeDAO
 {
-
   public static void newEntree(String name, String category, float rating, String restaurant, float price)
   {
+	//standard PreparedStatement SQL execution...
+	  
     try
     {
       // create a mysql database connection

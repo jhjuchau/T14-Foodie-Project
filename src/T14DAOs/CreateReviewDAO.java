@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class CreateReviewDAO
 {
-
   public static void newReview(String text, int entreeNum, int userNum, float rating)
   {
+	  //standard preparedStatement SQL execution...
     try
     {
       // create a mysql database connection

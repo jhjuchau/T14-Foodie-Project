@@ -48,6 +48,11 @@ public class AdminActionServlet extends HttpServlet {
 			  out.println("<td><center><input type=\"submit\" value=\"Confirm you want to delete this entree\"/></center></td>");
 			  out.println("<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+" />");
 			  out.println("</form>");
+			  
+			  out.println("<form action=mainpage.html method=\"post\">");
+			  out.println("<td><center><input type=\"submit\" value=\"Go back\"/></center></td>");
+			  out.println("<input type=\"hidden\" name=\"entreeNum\" value="+entreeNum+" />");
+			  out.println("</form>");
 		}
 		
 		

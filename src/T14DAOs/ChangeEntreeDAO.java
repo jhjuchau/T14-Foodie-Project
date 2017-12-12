@@ -9,7 +9,6 @@ public class ChangeEntreeDAO
   {
     try
     {
-      // create a mysql database connection
       String myDriver = "com.mysql.jdbc.Driver";
       String myUrl = "jdbc:mysql://localhost:3306/team14?zeroDateTimeBehavior=convertToNull";
       Class.forName(myDriver);
