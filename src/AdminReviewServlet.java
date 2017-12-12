@@ -48,6 +48,8 @@ public class AdminReviewServlet extends HttpServlet {
 				    	"<option value=2>Delete the item in question</option>"+
 				    	"</select>"+
 							   "<br /> <input type=\"submit\" value=\"Perform action\" />");}
+				   
+				   
 				   else{
 					   writer.println("<div class = \"whitebolder\"> No action needs to be taken for this item.</div>");
 					   writer.println("<input type=\"hidden\" name=\"actionval\" value=2>");
