@@ -28,8 +28,9 @@ public class EntreeListServlet extends HttpServlet {
 		
 		String criteria=request.getParameter("criteria");
 		String searchTerm=request.getParameter("searchTerm");
-		HttpSession session = request.getSession();
 		
+		//later, when search results are displayed
+		HttpSession session = request.getSession();
         int adminStatus = (int) session.getAttribute("adminstatus");
         
         writer.println("<head><link rel=\"import\" href=\"header.html\"></head>");
@@ -57,10 +58,12 @@ public class EntreeListServlet extends HttpServlet {
 			int attentionFlag = PullEntreeInfoDAO.getAttentionFlag(entreeNum);
 			
 			
+			//etc etc etc
 		  writer.println("<tr><td><center>"+result.getString("EntreeName")+"</center></td>" +
 				  			"<td><center>"+result.getString("Restaurant")+"</center></td>"
 				  		+		"<td><center>"+result.getString("AverageRating")+"</center></td>"
 				  		  		+	"<td><center>"+result.getString("EntreeCategory")+"</center></td>");
+		  //etc etc etc 
 		      
 		  if(attentionFlag!=0){
 			  if (adminStatus==1){
@@ -86,6 +89,8 @@ public class EntreeListServlet extends HttpServlet {
 		  writer.println("</form>");
 		  
 		}
+		  
+		  //on the search results table
 		  if (adminStatus==1){
 			  writer.println("<form action=\"adminreview\" method=\"post\">");
 			  writer.println("<td><center><input type=\"submit\" value=\"Perform admin review for this item\"/></center></td>");

@@ -1,3 +1,13 @@
-/T14DAOs/
+/AdminActionServlet.class
+/AdminReviewServlet.class
 /ConfirmDeleteServlet.class
-/confirmDeleteServlet.class
+/DisplayEntreePageServlet.class
+/EntreeListServlet.class
+/LeaveReviewServlet.class
+/LoggedInServlet.class
+/LoginServlet.class
+/NewAccountServlet.class
+/NewEntreeServlet.class
+/NewReviewServlet.class
+/PullSessionInfoServlet.class
+/T14DAOs/

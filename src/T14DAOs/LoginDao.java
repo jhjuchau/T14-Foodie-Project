@@ -43,6 +43,7 @@ public class LoginDao extends HttpServlet{
 			//rs.next() shows that the resultset contains nect value or not
 			// for retriving multiple results, you can use while(rs.next)
 			
+			//after valid login
 			if (rs.next()) { //checking if the resultset has any value?   
 				int adminStatus = rs.getInt("UserAdminStatus");
 				int userNum = rs.getInt("UserNum");

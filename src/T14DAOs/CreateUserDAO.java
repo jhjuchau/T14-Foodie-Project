@@ -1,6 +1,8 @@
 package T14DAOs;
 import java.sql.*;
 
+import javax.servlet.http.HttpSession;
+
 
 public class CreateUserDAO
 {
@@ -56,4 +58,32 @@ public class CreateUserDAO
       System.err.println(e.getMessage());
     }
   }
+  
+  public static boolean isUniqueUsername(String username)
+  {
+	  boolean isUnique = true;
+		try {
+			//defining database driver to use
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/team14?zeroDateTimeBehavior=convertToNull", "root", "team14");
+			
+			PreparedStatement oPrStmt = con
+					.prepareStatement("select * from users where UserID=?");// ? represents some parameter to include
+																							
+			oPrStmt.setString(1, username);// parameter index start from 1
+			ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
+			
+			
+			//within LoginDAO, after SQL query
+			if (rs.next()) { //checking if the resultset has any value?   
+				isUnique = false;
+			}
+		
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return isUnique;
+	}
 }
